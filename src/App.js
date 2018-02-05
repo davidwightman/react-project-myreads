@@ -16,15 +16,25 @@ class BooksApp extends Component {
   };
 
   componentDidMount() {
+    this.getBooks();
+  }
+
+  getBooks = () => {
     BooksAPI.getAll().then(books => {
       this.setState({ books });
     });
-  }
+  };
+
+  updateBookShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf).then(() => {
+      this.getBooks();
+    });
+  };
 
   render() {
     return (
       <div className="app">
-        <ListBook books={this.state.books} />
+        <ListBook books={this.state.books} onChange={this.updateBookShelf} />
       </div>
     );
   }

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class Book extends Component {
+	changeBookShelf = e => {
+		this.props.onUpdate(e.target.value);
+	};
+
 	render() {
 		const book = this.props.book;
 		return (
@@ -15,8 +19,9 @@ class Book extends Component {
 								backgroundImage: `url("${book.imageLinks.thumbnail}")`
 							}}
 						/>
+
 						<div className="book-shelf-changer">
-							<select>
+							<select onChange={this.changeBookShelf} value={book.shelf}>
 								<option value="none" disabled>
 									Move to...
 								</option>

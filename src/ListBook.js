@@ -13,13 +13,19 @@ class ListBook extends Component {
 						<BookShelf
 							books={this.props.books.filter(book => book.shelf === 'currentlyReading')}
 							title="Currently Reading"
+							onChangeShelf={this.props.onChange}
 						/>
 
-						<BookShelf books={this.props.books.filter(book => book.shelf === 'read')} title="Read" />
+						<BookShelf
+							books={this.props.books.filter(book => book.shelf === 'read')}
+							title="Read"
+							onChangeShelf={this.props.onChange}
+						/>
 
 						<BookShelf
 							books={this.props.books.filter(book => book.shelf === 'wantToRead')}
 							title="Want to Read"
+							onChangeShelf={this.props.onChange}
 						/>
 					</div>
 				</div>
