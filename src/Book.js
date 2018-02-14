@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Book extends Component {
-	changeBookShelf = e => {
-		this.props.onUpdate(e.target.value);
+	changeBookShelf = event => {
+		this.props.onUpdate(event.target.value);
 	};
 
 	render() {
@@ -42,8 +42,7 @@ class Book extends Component {
 }
 
 Book.propTypes = {
-	book: PropTypes.object.isRequired,
-	onUpdate: PropTypes.func.isRequired
+	book: PropTypes.object.isRequired
 };
 
 export default Book;
